@@ -13,11 +13,23 @@ import {
   FiAnchor,
 } from "react-icons/fi";
 
-function SingleCard({ card }) {
-  const [isSelected, setIsSelected] = useState(false);
+function SingleCard({
+  card,
+  index,
+  selectionCount,
+  setSelectionCount,
+  firstSelection,
+  setFirstSelection,
+  setDisplayMessage,
+  isFlipped,
+  resetFlips,
+}) {
+  // const [isSelected, setIsSelected] = useState(false);
 
   const displayIconByCard = () => {
     switch (card) {
+      case 0:
+        return <FiAnchor size="3em" />;
       case 1:
         return <FiHeart size="3em" />;
       case 2:
@@ -36,20 +48,66 @@ function SingleCard({ card }) {
         return <FiLock size="3em" />;
       case 9:
         return <FiGithub size="3em" />;
-      case 0:
-        return <FiAnchor size="3em" />;
       default:
         return card;
     }
   };
 
-  const selectCard = () => {
-    setIsSelected(true);
+  const resetBoard = () => {
+    let newArray = [];
+
+    for (let i = 0; i < isFlipped.length; i++) {
+      newArray.push(0);
+    }
+    resetFlips(newArray);
+
+    // reset selection count
+    setSelectionCount(0);
   };
 
+  const selectCard = () => {
+    // console.log(isFlipped, index);
+    setSelectionCount(selectionCount + 1);
+
+    // check if we have selected 2 cards yet
+
+    // if we haven't...
+    let newArray = [];
+
+    for (let i = 0; i < isFlipped.length; i++) {
+      if (isFlipped[i] === 1) {
+        newArray.push(1);
+      } else if (i === index) {
+        newArray.push(1);
+      } else {
+        newArray.push(0);
+      }
+    }
+    console.log(newArray, selectionCount);
+    resetFlips(newArray);
+
+    // if we selected our 2nd card...
+    // check to see if it matches the first selection
+
+    console.log(firstSelection, card);
+    if (selectionCount === 0) {
+      setFirstSelection(card);
+    }
+    if (selectionCount === 1) {
+      if (firstSelection === card) {
+        setDisplayMessage("It's a match!");
+      } else {
+        setDisplayMessage("Try again");
+        setTimeout(() => {
+          resetBoard(newArray);
+        }, 5000);
+      }
+    }
+  };
+  // console.log(isFlipped, index);
   return (
     <div className="single-card" onClick={() => selectCard()}>
-      {isSelected ? displayIconByCard() : card}
+      {isFlipped[index] ? displayIconByCard() : null}
     </div>
   );
 }
