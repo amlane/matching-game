@@ -12,6 +12,8 @@ function Cards() {
   const [displayMessage, setDisplayMessage] = useState(null);
   const [isPlayDisabled, setIsPlayDisabled] = useState(false);
 
+  // TO DO - handle user score and winning matches
+
   useEffect(() => {
     // console.log("testing");
     let newGame = [];
