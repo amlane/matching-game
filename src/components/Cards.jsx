@@ -10,6 +10,7 @@ function Cards() {
   const [selectionCount, setSelectionCount] = useState(0);
   const [firstSelection, setFirstSelection] = useState(null);
   const [displayMessage, setDisplayMessage] = useState(null);
+  const [isPlayDisabled, setIsPlayDisabled] = useState(false);
 
   useEffect(() => {
     // console.log("testing");
@@ -56,9 +57,10 @@ function Cards() {
               firstSelection={firstSelection}
               setFirstSelection={setFirstSelection}
               setDisplayMessage={setDisplayMessage}
-              gameBoard={gameBoard}
               isFlipped={isFlipped}
               resetFlips={resetFlips}
+              isPlayDisabled={isPlayDisabled}
+              setIsPlayDisabled={setIsPlayDisabled}
             />
           );
         })}

@@ -23,9 +23,9 @@ function SingleCard({
   setDisplayMessage,
   isFlipped,
   resetFlips,
+  setIsPlayDisabled,
+  isPlayDisabled,
 }) {
-  // const [isSelected, setIsSelected] = useState(false);
-
   const displayIconByCard = () => {
     switch (card) {
       case 0:
@@ -67,6 +67,10 @@ function SingleCard({
 
   const selectCard = () => {
     // console.log(isFlipped, index);
+    if (isPlayDisabled) return;
+    console.log(isPlayDisabled);
+    setIsPlayDisabled(true);
+    console.log(isPlayDisabled);
     setSelectionCount(selectionCount + 1);
 
     // check if we have selected 2 cards yet
@@ -92,6 +96,7 @@ function SingleCard({
     console.log(firstSelection, card);
     if (selectionCount === 0) {
       setFirstSelection(card);
+      setIsPlayDisabled(false);
     }
     if (selectionCount === 1) {
       if (firstSelection === card) {
@@ -100,6 +105,7 @@ function SingleCard({
         setDisplayMessage("Try again");
         setTimeout(() => {
           resetBoard(newArray);
+          setIsPlayDisabled(false);
         }, 5000);
       }
     }
