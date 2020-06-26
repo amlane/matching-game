@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Cards.css";
 import {
   FiHeart,
@@ -14,6 +14,8 @@ import {
 } from "react-icons/fi";
 
 function SingleCard({ card }) {
+  const [isSelected, setIsSelected] = useState(false);
+
   const displayIconByCard = () => {
     switch (card) {
       case 1:
@@ -40,7 +42,16 @@ function SingleCard({ card }) {
         return card;
     }
   };
-  return <div className="single-card">{displayIconByCard()}</div>;
+
+  const selectCard = () => {
+    setIsSelected(true);
+  };
+
+  return (
+    <div className="single-card" onClick={() => selectCard()}>
+      {isSelected ? displayIconByCard() : card}
+    </div>
+  );
 }
 
 export default SingleCard;

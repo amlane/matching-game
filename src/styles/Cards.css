@@ -11,6 +11,10 @@
   border-radius: 15px;
 }
 
+.selected-card {
+  background-color: hotpink;
+}
+
 .gameboard {
   display: flex;
   flex-wrap: wrap;
