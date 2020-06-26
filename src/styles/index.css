@@ -10,4 +10,5 @@ body {
 html,
 body {
   box-sizing: border-box;
+  background-color: #282c34;
 }

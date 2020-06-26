@@ -10,5 +10,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: antiquewhite;
+  font-family: Comfortaa, sans-serif;
+  font-size: 4em;
 }

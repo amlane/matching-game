@@ -7,6 +7,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background-color: antiquewhite;
+  border-radius: 15px;
 }
 
 .gameboard {
@@ -15,7 +17,5 @@
   max-width: 620px;
   justify-content: center;
   align-items: center;
-  border: 1px solid;
   margin: 20px auto;
-  padding: 10px 0;
 }
