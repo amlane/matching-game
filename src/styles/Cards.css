@@ -1,0 +1,11 @@
+.single-card {
+  border: 1px solid;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.gameboard {
+  display: flex;
+  flex-wrap: wrap;
+}
