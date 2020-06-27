@@ -27,6 +27,10 @@ function SingleCard({
   isPlayDisabled,
   indexOfFirstSelection,
   setIndexOfFirstSelection,
+  setUsersScore,
+  usersScore,
+  guessCount,
+  setGuessCount,
 }) {
   const displayIconByCard = () => {
     switch (card) {
@@ -80,13 +84,14 @@ function SingleCard({
         newArray.push(0);
       }
     }
-    console.log("new array", newArray);
     resetFlips(newArray);
 
     setSelectionCount(0);
   };
 
   const selectCard = () => {
+    // handles any display messages from previous turn
+    setDisplayMessage(null);
     // handles not allowing user to select a card while game is processing current instruction
     if (isPlayDisabled) return;
     // handles clicking the same card for both selections
@@ -128,6 +133,7 @@ function SingleCard({
         // mark the winning indices as a 2 and handle when the board is reinitialized so that they are not turned back over
         setTimeout(() => {
           markWinningCards();
+          setUsersScore(usersScore + 1);
           setIsPlayDisabled(false);
         }, 2000);
       } else {
@@ -138,13 +144,13 @@ function SingleCard({
           setIsPlayDisabled(false);
         }, 2000);
       }
-      // console.log(isFlipped);
       // reset the board
+      setGuessCount(guessCount + 1);
       setFirstSelection(null);
       setIndexOfFirstSelection(null);
     }
   };
-  // console.log(isFlipped, index);
+
   return (
     <div className="single-card" onClick={() => selectCard()}>
       {isFlipped[index] ? displayIconByCard() : null}

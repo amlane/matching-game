@@ -6,7 +6,7 @@ import Cards from "./components/Cards";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Matching Game</header>
+      <header className="App-header">Game of Memory</header>
       <Cards />
     </div>
   );

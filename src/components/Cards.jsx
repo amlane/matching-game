@@ -12,11 +12,12 @@ function Cards() {
   const [indexOfFirstSelection, setIndexOfFirstSelection] = useState(null);
   const [displayMessage, setDisplayMessage] = useState(null);
   const [isPlayDisabled, setIsPlayDisabled] = useState(false);
+  const [usersScore, setUsersScore] = useState(0);
+  const [guessCount, setGuessCount] = useState(0);
 
-  // TO DO - handle user score and winning matches
+  // TO DO - handle different difficulty levels and board sizes
 
   useEffect(() => {
-    // console.log("testing");
     let newGame = [];
     let count = 0;
     for (let i = 1; i <= cardQty / 2; i++) {
@@ -31,7 +32,6 @@ function Cards() {
   }, [cardQty]);
 
   useEffect(() => {
-    // console.log("blahhh");
     let initializeBoard = [];
     for (let i = 0; i < cardQty; i++) {
       initializeBoard.push(0);
@@ -45,9 +45,13 @@ function Cards() {
   };
 
   if (!gameBoard) return <h1>Loading game...</h1>;
-  //   console.log(gameBoard);
+
   return (
     <>
+      <div className="scoreboard">
+        <span>Users Score: {usersScore}</span>
+        <span>Guesses: {guessCount}</span>
+      </div>
       <div className="gameboard">
         {gameBoard.map((card, i) => {
           return (
@@ -66,6 +70,10 @@ function Cards() {
               setIsPlayDisabled={setIsPlayDisabled}
               indexOfFirstSelection={indexOfFirstSelection}
               setIndexOfFirstSelection={setIndexOfFirstSelection}
+              usersScore={usersScore}
+              setUsersScore={setUsersScore}
+              guessCount={guessCount}
+              setGuessCount={setGuessCount}
             />
           );
         })}
