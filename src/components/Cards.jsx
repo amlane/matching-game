@@ -49,7 +49,7 @@ function Cards() {
   return (
     <>
       <div className="scoreboard">
-        <span>Users Score: {usersScore}</span>
+        <span>Score: {usersScore}</span>
         <span>Guesses: {guessCount}</span>
       </div>
       <div className="gameboard">
@@ -78,7 +78,7 @@ function Cards() {
           );
         })}
       </div>
-      <p style={{ color: "white" }}>{displayMessage}</p>
+      <p className="display-msg">{displayMessage}</p>
     </>
   );
 }
