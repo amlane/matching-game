@@ -134,7 +134,7 @@ function SingleCard({
           markWinningCards();
           setUsersScore(usersScore + 1);
           setIsPlayDisabled(false);
-        }, 2000);
+        }, 1000);
       } else {
         // if the pair is not a match...
         setDisplayMessage("Try again");
@@ -143,15 +143,21 @@ function SingleCard({
           setIsPlayDisabled(false);
         }, 2000);
       }
-      // reset the board
+      // increment the guess count
       setGuessCount(guessCount + 1);
+      // reset the user's turn
       setFirstSelection(null);
       setIndexOfFirstSelection(null);
     }
   };
 
   return (
-    <div className="single-card" onClick={() => selectCard()}>
+    <div
+      className={
+        isFlipped[index] === 2 ? `single-card selected-card` : `single-card`
+      }
+      onClick={() => selectCard()}
+    >
       {isFlipped[index] ? displayIconByCard() : null}
     </div>
   );
