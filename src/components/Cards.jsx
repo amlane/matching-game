@@ -4,7 +4,7 @@ import "../styles/Cards.css";
 import { shuffle } from "../utils/FisherYatesShuffle";
 
 function Cards() {
-  const [cardQty, setCardQty] = useState(20);
+  const [cardQty] = useState(20);
   const [gameBoard, setGameBoard] = useState(null);
   const [isFlipped, setIsFlipped] = useState([]);
   const [selectionCount, setSelectionCount] = useState(0);
