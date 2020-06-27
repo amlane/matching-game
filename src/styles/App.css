@@ -6,7 +6,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 25vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,8 @@
 
 @media only screen and (max-width: 900px) {
   .App-header {
-    min-height: 15vh;
-    font-size: 2em;
+    min-height: 8vh;
+    font-size: 1.8em;
+    padding-top: 10px;
   }
 }

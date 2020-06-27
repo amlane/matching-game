@@ -25,7 +25,7 @@
   max-width: 620px;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  margin: 10px auto 0;
 }
 
 .scoreboard {
@@ -50,8 +50,7 @@
   .scoreboard {
     width: 80%;
   }
-
-  .container {
-    width: ;
+  .display-msg {
+    font-size: 1.5rem;
   }
 }
