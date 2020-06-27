@@ -25,6 +25,8 @@ function SingleCard({
   resetFlips,
   setIsPlayDisabled,
   isPlayDisabled,
+  indexOfFirstSelection,
+  setIndexOfFirstSelection,
 }) {
   const displayIconByCard = () => {
     switch (card) {
@@ -67,10 +69,21 @@ function SingleCard({
 
   const selectCard = () => {
     // console.log(isFlipped, index);
+    // handles not allowing user to select a card while game is processing current instruction
     if (isPlayDisabled) return;
-    console.log(isPlayDisabled);
+    // handles clicking the same exact card for both selections
+    console.log(
+      "card: ",
+      card,
+      "first selection: ",
+      firstSelection,
+      "index: ",
+      index
+    );
+    if (index === indexOfFirstSelection) return;
+    // console.log(isPlayDisabled);
     setIsPlayDisabled(true);
-    console.log(isPlayDisabled);
+    // console.log(isPlayDisabled);
     setSelectionCount(selectionCount + 1);
 
     // check if we have selected 2 cards yet
@@ -87,27 +100,34 @@ function SingleCard({
         newArray.push(0);
       }
     }
-    console.log(newArray, selectionCount);
+    // console.log(newArray, selectionCount);
     resetFlips(newArray);
 
     // if we selected our 2nd card...
     // check to see if it matches the first selection
 
-    console.log(firstSelection, card);
+    // console.log(firstSelection, card);
     if (selectionCount === 0) {
       setFirstSelection(card);
+      setIndexOfFirstSelection(index);
       setIsPlayDisabled(false);
     }
     if (selectionCount === 1) {
       if (firstSelection === card) {
         setDisplayMessage("It's a match!");
+        setIsPlayDisabled(false);
       } else {
         setDisplayMessage("Try again");
         setTimeout(() => {
           resetBoard(newArray);
           setIsPlayDisabled(false);
-        }, 5000);
+        }, 2000);
       }
+      setFirstSelection(null);
+      setIndexOfFirstSelection(null);
+      setSelectionCount(0);
+      // add to the user's score
+      // mark the winning indices as a 2 and handle when the board is reinitialized so that they are not turned back over
     }
   };
   // console.log(isFlipped, index);

@@ -9,6 +9,7 @@ function Cards() {
   const [isFlipped, setIsFlipped] = useState([]);
   const [selectionCount, setSelectionCount] = useState(0);
   const [firstSelection, setFirstSelection] = useState(null);
+  const [indexOfFirstSelection, setIndexOfFirstSelection] = useState(null);
   const [displayMessage, setDisplayMessage] = useState(null);
   const [isPlayDisabled, setIsPlayDisabled] = useState(false);
 
@@ -30,7 +31,7 @@ function Cards() {
   }, [cardQty]);
 
   useEffect(() => {
-    console.log("blahhh");
+    // console.log("blahhh");
     let initializeBoard = [];
     for (let i = 0; i < cardQty; i++) {
       initializeBoard.push(0);
@@ -63,6 +64,8 @@ function Cards() {
               resetFlips={resetFlips}
               isPlayDisabled={isPlayDisabled}
               setIsPlayDisabled={setIsPlayDisabled}
+              indexOfFirstSelection={indexOfFirstSelection}
+              setIndexOfFirstSelection={setIndexOfFirstSelection}
             />
           );
         })}
