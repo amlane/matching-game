@@ -47,7 +47,7 @@ function Cards() {
   if (!gameBoard) return <h1>Loading game...</h1>;
 
   return (
-    <>
+    <div className="container">
       <div className="scoreboard">
         <span>Score: {usersScore}</span>
         <span>Guesses: {guessCount}</span>
@@ -79,7 +79,7 @@ function Cards() {
         })}
       </div>
       <p className="display-msg">{displayMessage}</p>
-    </>
+    </div>
   );
 }
 
