@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: antiquewhite;
+  color: pink;
   font-family: Comfortaa, sans-serif;
   font-size: 4em;
 }
@@ -21,6 +21,6 @@
   .App-header {
     min-height: 8vh;
     font-size: 1.8em;
-    padding-top: 10px;
+    padding: 10px 0;
   }
 }

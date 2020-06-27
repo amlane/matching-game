@@ -96,35 +96,34 @@ function SingleCard({
     if (isPlayDisabled) return;
     // handles clicking the same card for both selections
     if (index === indexOfFirstSelection) return;
+    // handles if user selects a card that's already been matched
+    // if the index of the current card selected is a 2 in isFlipped, return;
+    if (isFlipped[index] === 2) return;
+
+    // if passes all error handling...
     setIsPlayDisabled(true);
     setSelectionCount(selectionCount + 1);
 
-    // check if we have selected 2 cards yet
-
-    // if we haven't...
+    // flip the selected card...
     let newArray = [];
 
     for (let i = 0; i < isFlipped.length; i++) {
-      if (isFlipped[i] === 2) {
-        newArray.push(2);
-      } else if (isFlipped[i] === 1) {
-        newArray.push(1);
-      } else if (i === index) {
+      // copy isFlipped except for our current card
+      if (i === index) {
         newArray.push(1);
       } else {
-        newArray.push(0);
+        newArray.push(isFlipped[i]);
       }
     }
     resetFlips(newArray);
 
-    // if we selected our 2nd card...
-    // check to see if it matches the first selection
-
+    // if we are on our first card...
     if (selectionCount === 0) {
       setFirstSelection(card);
       setIndexOfFirstSelection(index);
       setIsPlayDisabled(false);
     }
+    // if we are on our second card...
     if (selectionCount === 1) {
       if (firstSelection === card) {
         // if the pair is a winning set...

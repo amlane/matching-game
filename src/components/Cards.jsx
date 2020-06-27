@@ -78,7 +78,7 @@ function Cards() {
           );
         })}
       </div>
-      <p className="display-msg">{displayMessage}</p>
+      <div className="display-msg">{displayMessage}</div>
     </div>
   );
 }
