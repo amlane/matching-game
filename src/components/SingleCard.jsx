@@ -59,7 +59,11 @@ function SingleCard({
     let newArray = [];
 
     for (let i = 0; i < isFlipped.length; i++) {
-      newArray.push(0);
+      if (isFlipped[i] === 2) {
+        newArray.push(2);
+      } else {
+        newArray.push(0);
+      }
     }
     resetFlips(newArray);
 
@@ -67,23 +71,27 @@ function SingleCard({
     setSelectionCount(0);
   };
 
+  const markWinningCards = () => {
+    let newArray = [];
+    for (let i = 0; i < isFlipped.length; i++) {
+      if (i === index || i === indexOfFirstSelection || isFlipped[i] === 2) {
+        newArray.push(2);
+      } else {
+        newArray.push(0);
+      }
+    }
+    console.log("new array", newArray);
+    resetFlips(newArray);
+
+    setSelectionCount(0);
+  };
+
   const selectCard = () => {
-    // console.log(isFlipped, index);
     // handles not allowing user to select a card while game is processing current instruction
     if (isPlayDisabled) return;
-    // handles clicking the same exact card for both selections
-    console.log(
-      "card: ",
-      card,
-      "first selection: ",
-      firstSelection,
-      "index: ",
-      index
-    );
+    // handles clicking the same card for both selections
     if (index === indexOfFirstSelection) return;
-    // console.log(isPlayDisabled);
     setIsPlayDisabled(true);
-    // console.log(isPlayDisabled);
     setSelectionCount(selectionCount + 1);
 
     // check if we have selected 2 cards yet
@@ -92,7 +100,9 @@ function SingleCard({
     let newArray = [];
 
     for (let i = 0; i < isFlipped.length; i++) {
-      if (isFlipped[i] === 1) {
+      if (isFlipped[i] === 2) {
+        newArray.push(2);
+      } else if (isFlipped[i] === 1) {
         newArray.push(1);
       } else if (i === index) {
         newArray.push(1);
@@ -100,13 +110,11 @@ function SingleCard({
         newArray.push(0);
       }
     }
-    // console.log(newArray, selectionCount);
     resetFlips(newArray);
 
     // if we selected our 2nd card...
     // check to see if it matches the first selection
 
-    // console.log(firstSelection, card);
     if (selectionCount === 0) {
       setFirstSelection(card);
       setIndexOfFirstSelection(index);
@@ -114,20 +122,26 @@ function SingleCard({
     }
     if (selectionCount === 1) {
       if (firstSelection === card) {
+        // if the pair is a winning set...
         setDisplayMessage("It's a match!");
-        setIsPlayDisabled(false);
+        // add to the user's score
+        // mark the winning indices as a 2 and handle when the board is reinitialized so that they are not turned back over
+        setTimeout(() => {
+          markWinningCards();
+          setIsPlayDisabled(false);
+        }, 2000);
       } else {
+        // if the pair is not a match...
         setDisplayMessage("Try again");
         setTimeout(() => {
           resetBoard(newArray);
           setIsPlayDisabled(false);
         }, 2000);
       }
+      // console.log(isFlipped);
+      // reset the board
       setFirstSelection(null);
       setIndexOfFirstSelection(null);
-      setSelectionCount(0);
-      // add to the user's score
-      // mark the winning indices as a 2 and handle when the board is reinitialized so that they are not turned back over
     }
   };
   // console.log(isFlipped, index);
