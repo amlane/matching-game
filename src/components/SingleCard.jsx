@@ -136,10 +136,11 @@ function SingleCard({
           markWinningCards();
           setUsersScore(usersScore + 1);
           setIsPlayDisabled(false);
-          // once we have matched all
+          setDisplayMessage(null);
+
+          // once we have found all possible matches...
           if (usersScore === cardQty / 2 - 1) {
             let topScore = localStorage.getItem("top_score");
-            // console.log(topScore, guessCount + 1);
             if (topScore > guessCount + 1 || topScore === null) {
               localStorage.setItem("top_score", guessCount + 1);
             }
@@ -148,13 +149,13 @@ function SingleCard({
             }, 1000);
           }
         }, 1000);
-        // TODO - change this to half the card qty
       } else {
         // if the pair is not a match...
         setDisplayMessage("Try again");
         setTimeout(() => {
           resetBoard(newArray);
           setIsPlayDisabled(false);
+          setDisplayMessage(null);
         }, 2000);
       }
       // increment the guess count

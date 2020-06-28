@@ -32,14 +32,31 @@
   color: antiquewhite;
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
+  width: 83%;
+  margin: 20px auto;
   font-size: 1.25rem;
+}
+
+.scoreboard span {
+  background-color: pink;
+  color: #282c34;
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 40%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.scoreboard span strong {
+  margin-left: 5px;
+  font-size: 1.35rem;
 }
 
 .display-msg {
   color: antiquewhite;
   font-size: 2rem;
+  height: 5vh;
 }
 
 @media only screen and (max-width: 900px) {
@@ -49,7 +66,7 @@
     margin: 5px;
   }
   .scoreboard {
-    width: 80%;
+    width: 82%;
   }
   .display-msg {
     font-size: 1.5rem;

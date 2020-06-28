@@ -53,10 +53,7 @@ function Cards() {
     <GameWon guessCount={guessCount} />
   ) : (
     <div className="container">
-      <div className="scoreboard">
-        <span>Score: {usersScore}</span>
-        <span>Guesses: {guessCount}</span>
-      </div>
+      <div className="display-msg">{displayMessage}</div>
       <div className="gameboard">
         {gameBoard.map((card, i) => {
           return (
@@ -85,7 +82,14 @@ function Cards() {
           );
         })}
       </div>
-      <div className="display-msg">{displayMessage}</div>
+      <div className="scoreboard">
+        <span>
+          Matches: <strong> {usersScore}</strong>
+        </span>
+        <span>
+          Guesses: <strong> {guessCount}</strong>
+        </span>
+      </div>
     </div>
   );
 }
