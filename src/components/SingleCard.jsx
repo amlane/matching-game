@@ -16,6 +16,7 @@ import {
 function SingleCard({
   card,
   index,
+  cardQty,
   selectionCount,
   setSelectionCount,
   firstSelection,
@@ -31,6 +32,7 @@ function SingleCard({
   usersScore,
   guessCount,
   setGuessCount,
+  setIsGameWon,
 }) {
   const displayIconByCard = () => {
     switch (card) {
@@ -134,7 +136,19 @@ function SingleCard({
           markWinningCards();
           setUsersScore(usersScore + 1);
           setIsPlayDisabled(false);
+          // once we have matched all
+          if (usersScore === cardQty / 2 - 1) {
+            let topScore = localStorage.getItem("top_score");
+            // console.log(topScore, guessCount + 1);
+            if (topScore > guessCount + 1 || topScore === null) {
+              localStorage.setItem("top_score", guessCount + 1);
+            }
+            setTimeout(() => {
+              setIsGameWon(true);
+            }, 1000);
+          }
         }, 1000);
+        // TODO - change this to half the card qty
       } else {
         // if the pair is not a match...
         setDisplayMessage("Try again");

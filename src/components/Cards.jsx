@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SingleCard from "./SingleCard";
+import GameWon from "./GameWon";
 import "../styles/Cards.css";
 import { shuffle } from "../utils/FisherYatesShuffle";
 
@@ -14,6 +15,7 @@ function Cards() {
   const [isPlayDisabled, setIsPlayDisabled] = useState(false);
   const [usersScore, setUsersScore] = useState(0);
   const [guessCount, setGuessCount] = useState(0);
+  const [isGameWon, setIsGameWon] = useState(false);
 
   // TO DO - handle different difficulty levels and board sizes
 
@@ -46,7 +48,10 @@ function Cards() {
 
   if (!gameBoard) return <h1>Loading game...</h1>;
 
-  return (
+  return isGameWon ? (
+    // TODO - confetti component
+    <GameWon guessCount={guessCount} />
+  ) : (
     <div className="container">
       <div className="scoreboard">
         <span>Score: {usersScore}</span>
@@ -59,6 +64,7 @@ function Cards() {
               card={card}
               key={i}
               index={i}
+              cardQty={cardQty}
               selectionCount={selectionCount}
               setSelectionCount={setSelectionCount}
               firstSelection={firstSelection}
@@ -74,6 +80,7 @@ function Cards() {
               setUsersScore={setUsersScore}
               guessCount={guessCount}
               setGuessCount={setGuessCount}
+              setIsGameWon={setIsGameWon}
             />
           );
         })}

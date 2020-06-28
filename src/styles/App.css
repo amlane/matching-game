@@ -21,6 +21,7 @@
   .App-header {
     min-height: 8vh;
     font-size: 1.8em;
-    padding: 10px 0;
+    padding: 10px 30px;
+    align-items: flex-start;
   }
 }

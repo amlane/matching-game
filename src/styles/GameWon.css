@@ -1,0 +1,27 @@
+.confetti-ctr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.winner-modal {
+  color: #282c34;
+  background-color: antiquewhite;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2;
+  font-family: Comfortaa, sans-serif;
+}
+
+.confetti-ctr button {
+  color: #282c34;
+  background-color: pink;
+  /* border: 1px solid #282c34; */
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
