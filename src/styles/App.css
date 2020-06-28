@@ -7,21 +7,26 @@
 .App-header {
   background-color: #282c34;
   min-height: 20vh;
+  max-width: 470px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 2rem;
   color: pink;
   font-family: Comfortaa, sans-serif;
-  font-size: 4em;
+  margin: 0 auto;
+}
+
+.level {
+  font-size: 1.25rem;
+  padding: 5px 20px 0;
 }
 
 @media only screen and (max-width: 900px) {
   .App-header {
     min-height: 8vh;
-    font-size: 1.8em;
-    padding: 10px 30px;
-    align-items: flex-start;
+    padding: 5px;
+    align-items: baseline;
   }
 }

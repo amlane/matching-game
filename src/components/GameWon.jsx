@@ -2,21 +2,65 @@ import React from "react";
 import Confetti from "react-confetti";
 import "../styles/GameWon.css";
 
-function GameWon({ guessCount }) {
-  const topScore = localStorage.getItem("top_score");
+function GameWon({
+  guessCount,
+  setIsGameWon,
+  cardQty,
+  setCardQty,
+  setUsersScore,
+  setGuessCount,
+  level,
+  setLevel,
+}) {
+  const topScore = localStorage.getItem(`level_${level}_top_score`);
 
-  const restartGame = () => {
-    window.location.reload();
+  const nextLevel = () => {
+    setIsGameWon(false);
+    setGuessCount(0);
+    setUsersScore(0);
+    setLevel(level + 1);
+    setCardQty(cardQty + 4);
   };
 
-  return (
+  const restartGame = () => {
+    setIsGameWon(false);
+    setGuessCount(0);
+    setUsersScore(0);
+    setLevel(1);
+    setCardQty(12);
+  };
+
+  return cardQty === 28 ? (
+    <div className="final-winner">
+      <Confetti height={window.innerHeight} />
+      <section className="winner-modal">
+        <div className="winner-msg">
+          <h1>You won the game!</h1>
+          <h2>Number of Guesses: {guessCount}</h2>
+          <h2>Top Score for Level: {topScore}</h2>
+        </div>
+        <section className="top-scores">
+          <h3>Your Personal Records:</h3>
+          {[1, 2, 3, 4, 5].map((num) => {
+            return (
+              <div className="levels">
+                <span>Level {num}:</span>{" "}
+                {localStorage.getItem(`level_${num}_top_score`)}
+              </div>
+            );
+          })}
+        </section>
+        <button onClick={() => restartGame()}>Play again</button>
+      </section>
+    </div>
+  ) : (
     <div className="confetti-ctr">
       <Confetti height={window.innerHeight} />
       <section className="winner-modal">
         <h1>You win!</h1>
         <h2>Number of Guesses: {guessCount}</h2>
-        <h2>Your best score: {topScore}</h2>
-        <button onClick={() => restartGame()}>Play again</button>
+        <h2>Top Score for Level: {topScore}</h2>
+        <button onClick={() => nextLevel()}>Next Level</button>
       </section>
     </div>
   );

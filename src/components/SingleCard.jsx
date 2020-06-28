@@ -11,6 +11,10 @@ import {
   FiLock,
   FiGithub,
   FiAnchor,
+  FiCamera,
+  FiKey,
+  FiStar,
+  FiSmile,
 } from "react-icons/fi";
 
 function SingleCard({
@@ -33,6 +37,7 @@ function SingleCard({
   guessCount,
   setGuessCount,
   setIsGameWon,
+  level,
 }) {
   const displayIconByCard = () => {
     switch (card) {
@@ -56,6 +61,14 @@ function SingleCard({
         return <FiLock size="3em" />;
       case 9:
         return <FiGithub size="3em" />;
+      case 10:
+        return <FiCamera size="3em" />;
+      case 11:
+        return <FiKey size="3em" />;
+      case 12:
+        return <FiStar size="3em" />;
+      case 13:
+        return <FiSmile size="3em" />;
       default:
         return card;
     }
@@ -140,9 +153,9 @@ function SingleCard({
 
           // once we have found all possible matches...
           if (usersScore === cardQty / 2 - 1) {
-            let topScore = localStorage.getItem("top_score");
+            let topScore = localStorage.getItem(`level_${level}_top_score`);
             if (topScore > guessCount + 1 || topScore === null) {
-              localStorage.setItem("top_score", guessCount + 1);
+              localStorage.setItem(`level_${level}_top_score`, guessCount + 1);
             }
             setTimeout(() => {
               setIsGameWon(true);

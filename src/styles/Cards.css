@@ -22,7 +22,7 @@
 .gameboard {
   display: flex;
   flex-wrap: wrap;
-  max-width: 620px;
+  max-width: 550px;
   justify-content: center;
   align-items: center;
   margin: 10px auto 0;
@@ -32,7 +32,7 @@
   color: antiquewhite;
   display: flex;
   justify-content: space-between;
-  width: 83%;
+  width: 66%;
   margin: 20px auto;
   font-size: 1.25rem;
 }
@@ -40,12 +40,12 @@
 .scoreboard span {
   background-color: pink;
   color: #282c34;
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 10px;
-  width: 40%;
+  width: 35%;
   height: 30px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: baseline;
 }
 .scoreboard span strong {
@@ -66,7 +66,7 @@
     margin: 5px;
   }
   .scoreboard {
-    width: 82%;
+    width: 85%;
   }
   .display-msg {
     font-size: 1.5rem;

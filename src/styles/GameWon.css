@@ -5,6 +5,13 @@
   height: 60vh;
 }
 
+.final-winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 .winner-modal {
   color: #282c34;
   background-color: antiquewhite;
@@ -16,7 +23,35 @@
   font-family: Comfortaa, sans-serif;
 }
 
-.confetti-ctr button {
+.winner-modal .winner-msg {
+  border-bottom: 1px solid;
+}
+
+.winner-modal .top-scores {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 40%;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.winner-modal .top-scores .levels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.winner-modal .top-scores h3 {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.confetti-ctr button,
+.final-winner button {
   color: #282c34;
   background-color: pink;
   /* border: 1px solid #282c34; */

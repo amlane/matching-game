@@ -4,8 +4,8 @@ import GameWon from "./GameWon";
 import "../styles/Cards.css";
 import { shuffle } from "../utils/FisherYatesShuffle";
 
-function Cards() {
-  const [cardQty] = useState(20);
+function Cards({ level, setLevel }) {
+  const [cardQty, setCardQty] = useState(12);
   const [gameBoard, setGameBoard] = useState(null);
   const [isFlipped, setIsFlipped] = useState([]);
   const [selectionCount, setSelectionCount] = useState(0);
@@ -20,6 +20,7 @@ function Cards() {
   // TO DO - handle different difficulty levels and board sizes
 
   useEffect(() => {
+    console.log("test");
     let newGame = [];
     let count = 0;
     for (let i = 1; i <= cardQty / 2; i++) {
@@ -50,7 +51,16 @@ function Cards() {
 
   return isGameWon ? (
     // TODO - confetti component
-    <GameWon guessCount={guessCount} />
+    <GameWon
+      guessCount={guessCount}
+      setIsGameWon={setIsGameWon}
+      cardQty={cardQty}
+      setCardQty={setCardQty}
+      setUsersScore={setUsersScore}
+      setGuessCount={setGuessCount}
+      level={level}
+      setLevel={setLevel}
+    />
   ) : (
     <div className="container">
       <div className="display-msg">{displayMessage}</div>
@@ -78,6 +88,7 @@ function Cards() {
               guessCount={guessCount}
               setGuessCount={setGuessCount}
               setIsGameWon={setIsGameWon}
+              level={level}
             />
           );
         })}
