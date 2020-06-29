@@ -2,6 +2,10 @@
   text-align: center;
   width: 100%;
   margin: 0 auto;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
 }
 
 .App-header {
@@ -18,6 +22,19 @@
   margin: 0 auto;
 }
 
+.App-header h1 {
+  display: inline-block;
+  font-size: 2rem;
+}
+
+.logo {
+  background: gray;
+  padding: 8px 3px 5px;
+  border-radius: 50%;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
 .level {
   font-size: 1.25rem;
   padding: 5px 20px 0;
@@ -28,5 +45,6 @@
     min-height: 8vh;
     padding: 5px;
     align-items: baseline;
+    /* font-size: 1.75rem; */
   }
 }

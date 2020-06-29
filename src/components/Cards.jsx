@@ -17,8 +17,6 @@ function Cards({ level, setLevel }) {
   const [guessCount, setGuessCount] = useState(0);
   const [isGameWon, setIsGameWon] = useState(false);
 
-  // TO DO - handle different difficulty levels and board sizes
-
   useEffect(() => {
     let newGame = [];
     let count = 0;
@@ -76,10 +74,9 @@ function Cards({ level, setLevel }) {
     setSelectionCount(0);
   };
 
-  if (!gameBoard) return <h1>Loading game...</h1>;
+  if (!gameBoard) return <h1 style={{ color: "white" }}>Loading game...</h1>;
 
   return isGameWon ? (
-    // TODO - confetti component
     <GameWon
       guessCount={guessCount}
       setIsGameWon={setIsGameWon}

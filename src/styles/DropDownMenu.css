@@ -1,0 +1,76 @@
+.backdrop-filter {
+  background-color: #282c34;
+  min-height: 80vh;
+  position: absolute;
+  top: 12%;
+  opacity: 0.9;
+}
+
+.dropdown-menu {
+  height: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.75rem;
+  min-width: 430px;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: appear 1s ease-in;
+}
+
+.disappear {
+  animation: disappear 1s ease-in;
+}
+
+.dropdown-menu a {
+  border-bottom: 1px solid pink;
+  margin: 0;
+  padding: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: pink;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .backdrop-filter {
+    top: 12%;
+    width: 100%;
+  }
+  .dropdown-menu {
+    width: 80%;
+    margin: 10px;
+    min-width: 0px;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
