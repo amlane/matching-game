@@ -38,6 +38,8 @@ function SingleCard({
   setGuessCount,
   setIsGameWon,
   level,
+  resetBoard,
+  markWinningCards,
 }) {
   const displayIconByCard = () => {
     switch (card) {
@@ -72,36 +74,6 @@ function SingleCard({
       default:
         return card;
     }
-  };
-
-  const resetBoard = () => {
-    let newArray = [];
-
-    for (let i = 0; i < isFlipped.length; i++) {
-      if (isFlipped[i] === 2) {
-        newArray.push(2);
-      } else {
-        newArray.push(0);
-      }
-    }
-    resetFlips(newArray);
-
-    // reset selection count
-    setSelectionCount(0);
-  };
-
-  const markWinningCards = () => {
-    let newArray = [];
-    for (let i = 0; i < isFlipped.length; i++) {
-      if (i === index || i === indexOfFirstSelection || isFlipped[i] === 2) {
-        newArray.push(2);
-      } else {
-        newArray.push(0);
-      }
-    }
-    resetFlips(newArray);
-
-    setSelectionCount(0);
   };
 
   const selectCard = () => {
@@ -146,7 +118,7 @@ function SingleCard({
         // add to the user's score
         // mark the winning indices as a 2 and handle when the board is reinitialized so that they are not turned back over
         setTimeout(() => {
-          markWinningCards();
+          markWinningCards(index);
           setUsersScore(usersScore + 1);
           setIsPlayDisabled(false);
           setDisplayMessage(null);

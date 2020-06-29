@@ -20,7 +20,6 @@ function Cards({ level, setLevel }) {
   // TO DO - handle different difficulty levels and board sizes
 
   useEffect(() => {
-    console.log("test");
     let newGame = [];
     let count = 0;
     for (let i = 1; i <= cardQty / 2; i++) {
@@ -45,6 +44,36 @@ function Cards({ level, setLevel }) {
 
   const resetFlips = (arr) => {
     setIsFlipped(arr);
+  };
+
+  const resetBoard = () => {
+    let newArray = [];
+
+    for (let i = 0; i < isFlipped.length; i++) {
+      if (isFlipped[i] === 2) {
+        newArray.push(2);
+      } else {
+        newArray.push(0);
+      }
+    }
+    resetFlips(newArray);
+
+    // reset selection count
+    setSelectionCount(0);
+  };
+
+  const markWinningCards = (index) => {
+    let newArray = [];
+    for (let i = 0; i < isFlipped.length; i++) {
+      if (i === index || i === indexOfFirstSelection || isFlipped[i] === 2) {
+        newArray.push(2);
+      } else {
+        newArray.push(0);
+      }
+    }
+    resetFlips(newArray);
+
+    setSelectionCount(0);
   };
 
   if (!gameBoard) return <h1>Loading game...</h1>;
@@ -89,6 +118,8 @@ function Cards({ level, setLevel }) {
               setGuessCount={setGuessCount}
               setIsGameWon={setIsGameWon}
               level={level}
+              resetBoard={resetBoard}
+              markWinningCards={markWinningCards}
             />
           );
         })}
