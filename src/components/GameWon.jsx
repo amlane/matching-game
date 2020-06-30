@@ -59,7 +59,9 @@ function GameWon({
       <section className="winner-modal">
         <h1>You win!</h1>
         <h2>Number of Guesses: {guessCount}</h2>
-        <h2>Top Score for Level: {topScore}</h2>
+        <h2>
+          Top Score for Level {level}: {topScore}
+        </h2>
         <button onClick={() => nextLevel()}>Next Level</button>
       </section>
     </div>

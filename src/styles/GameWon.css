@@ -13,8 +13,8 @@
 }
 
 .winner-modal {
-  color: #282c34;
-  background-color: antiquewhite;
+  color: var(--mainColor);
+  background-color: var(--accentColor);
   width: 80%;
   margin: 0 auto;
   padding: 20px;
