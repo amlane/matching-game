@@ -53,8 +53,7 @@
 .confetti-ctr button,
 .final-winner button {
   color: #282c34;
-  background-color: pink;
-  /* border: 1px solid #282c34; */
+  background-color: var(--mainColor);
   padding: 10px 16px;
   border-radius: 25px;
   font-size: 1.5rem;

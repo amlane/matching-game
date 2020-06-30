@@ -17,7 +17,7 @@
   align-items: baseline;
   justify-content: space-between;
   font-size: 2rem;
-  color: pink;
+  color: var(--mainColor);
   font-family: Comfortaa, sans-serif;
   margin: 0 auto;
 }

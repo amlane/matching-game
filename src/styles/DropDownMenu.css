@@ -3,7 +3,7 @@
   min-height: 80vh;
   position: absolute;
   top: 12%;
-  opacity: 0.9;
+  opacity: 0.98;
 }
 
 .dropdown-menu {
@@ -12,7 +12,7 @@
   border-radius: 15px;
   font-size: 1.75rem;
   min-width: 430px;
-  background-color: gray;
+  background-color: var(--accentColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,12 +24,12 @@
 }
 
 .dropdown-menu a {
-  border-bottom: 1px solid pink;
+  border-bottom: 1px solid var(--mainColor);
   margin: 0;
   padding: 20px;
   cursor: pointer;
   text-decoration: none;
-  color: pink;
+  color: var(--mainColor);
 }
 
 .dropdown-menu a:last-child {
@@ -63,14 +63,5 @@
   }
   to {
     opacity: 0;
-  }
-}
-
-@keyframes slidein {
-  from {
-    transform: translateY(-200%);
-  }
-  to {
-    transform: translateY(0%);
   }
 }

@@ -1,0 +1,51 @@
+.color-theme {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  color: var(--mainColor);
+  font-size: 1.75rem;
+}
+
+.color-theme section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.selection {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.color-theme button {
+  border: 1px solid var(--accentColor);
+  border-radius: 25px;
+  margin: 20px 0;
+  padding: 8px 26px;
+  font-size: 1.75rem;
+  background: pink;
+  color: #282c34;
+}
+
+.default {
+  background: pink;
+}
+.coral {
+  background: coral;
+}
+.yellow {
+  background: yellow;
+}
+.green {
+  background: chartreuse;
+}
+.blue {
+  background: deepskyblue;
+}
+.purple {
+  background: darkorchid;
+}

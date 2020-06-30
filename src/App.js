@@ -8,16 +8,18 @@ import DropDownMenu from "./components/DropDownMenu";
 function App() {
   const [level, setLevel] = useState(1);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
+  const [isThemeChanged, setIsThemeChanged] = useState(false);
 
   useEffect(() => {
     const colorTheme = localStorage.getItem("color_theme");
-
-    if (colorTheme === "purple") {
-      const body = window.document.body;
-
-      body.classList.add("purple-theme");
+    document.documentElement.style.setProperty("--mainColor", colorTheme);
+    if (colorTheme === "darkorchid" || colorTheme === "deepskyblue") {
+      document.documentElement.style.setProperty("--accentColor", "lightgray");
+    } else {
+      document.documentElement.style.setProperty("--accentColor", "gray");
     }
-  }, []);
+    setIsThemeChanged(false);
+  }, [isThemeChanged]);
 
   const toggleDropDownMenu = () => {
     if (isDropDownActive) {
@@ -65,7 +67,12 @@ function App() {
         path="/settings"
         exact
         render={(props) => (
-          <ColorTheme {...props} level={level} setLevel={setLevel} />
+          <ColorTheme
+            {...props}
+            level={level}
+            setLevel={setLevel}
+            setIsThemeChanged={setIsThemeChanged}
+          />
         )}
       />
     </div>

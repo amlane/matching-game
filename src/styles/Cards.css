@@ -6,12 +6,14 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: antiquewhite;
+  background-color: var(--accentColor);
+  color: var(--mainColor);
   border-radius: 15px;
 }
 
 .selected-card {
-  background-color: pink;
+  background-color: var(--mainColor);
+  color: var(--accentColor);
 }
 
 .container {
@@ -38,7 +40,7 @@
 }
 
 .scoreboard span {
-  background-color: pink;
+  background-color: var(--mainColor);
   color: #282c34;
   padding: 5px 20px;
   border-radius: 10px;
@@ -54,7 +56,7 @@
 }
 
 .display-msg {
-  color: pink;
+  color: var(--mainColor);
   font-size: 2rem;
   height: 5vh;
 }
@@ -72,8 +74,4 @@
     font-size: 1.5rem;
     padding-top: 10px;
   }
-}
-
-.purple-theme {
-  color: purple;
 }
