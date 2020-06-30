@@ -44,13 +44,14 @@
 .App-header h1 {
   display: inline-block;
   font-size: 1.75rem;
+  margin-left: 10px;
 }
 
 .level {
-  font-size: 1rem;
+  font-size: 0.75rem;
   padding: 5px 10px;
   margin: 0 10px 0;
-  align-self: flex-start;
+  /* align-self: flex-start; */
   background-color: var(--mainColor);
   color: #282c34;
   border-radius: 3px;
@@ -64,5 +65,8 @@
   }
   .App-header h1 {
     font-size: 1.65rem;
+  }
+  .level {
+    align-self: flex-start;
   }
 }

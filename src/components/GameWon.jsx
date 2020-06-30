@@ -42,10 +42,10 @@ function GameWon({
           </h2>
         </div>
         <section className="top-scores">
-          <h3>Your Personal Records:</h3>
-          {[1, 2, 3, 4, 5].map((num) => {
+          <h3>Your PRs:</h3>
+          {[1, 2, 3, 4, 5].map((num, i) => {
             return (
-              <div className="levels">
+              <div className="levels" key={i}>
                 <span>Level {num}:</span>{" "}
                 {localStorage.getItem(`level_${num}_top_score`)}
               </div>

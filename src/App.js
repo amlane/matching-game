@@ -39,9 +39,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <section className="menu-btn" onClick={() => toggleDropDownMenu()}>
-          <div class="line line-1"></div>
-          <div class="line line-2"></div>
-          <div class="line line-3"></div>
+          <div className="line line-1"></div>
+          <div className="line line-2"></div>
+          <div className="line line-3"></div>
         </section>
         <section>
           <span className="logo" role="img" aria-label="brain">

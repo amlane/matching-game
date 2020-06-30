@@ -56,14 +56,17 @@
 
 .display-msg {
   color: var(--mainColor);
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 10vh;
-  border: 1px solid var(--accentColor);
+  border: 3px solid var(--mainColor);
   border-radius: 5px;
   width: 90%;
   margin: 10px auto;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 470px;
+  font-family: Comfortaa, sans-serif;
 }
 
 @media only screen and (max-width: 900px) {
@@ -76,8 +79,6 @@
     width: 85%;
   }
   .display-msg {
-    font-size: 1.5rem;
-    padding-top: 10px;
     width: 85%;
   }
 }

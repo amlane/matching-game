@@ -45,8 +45,9 @@
   margin: 5px 0;
 }
 
-.winner-modal .winner-msg h2 {
+h2 {
   margin: 10px 0;
+  /* border: 1px solid red; */
 }
 
 .winner-modal .top-scores h3 {
@@ -56,7 +57,9 @@
 
 .confetti-ctr button,
 .final-winner button {
-  color: #282c34;
+  color: var(--accentColor);
+  border: none;
+  box-shadow: 0 2px 4px black;
   background-color: var(--mainColor);
   padding: 10px 16px;
   border-radius: 25px;
