@@ -35,9 +35,11 @@ function GameWon({
       <Confetti height={window.innerHeight} />
       <section className="winner-modal">
         <div className="winner-msg">
-          <h1>You won the game!</h1>
-          <h2>Number of Guesses: {guessCount}</h2>
-          <h2>Top Score for Level: {topScore}</h2>
+          <h2>You won the game!</h2>
+          <h2>Guesses: {guessCount}</h2>
+          <h2>
+            PR for Level {level}: {topScore}
+          </h2>
         </div>
         <section className="top-scores">
           <h3>Your Personal Records:</h3>
@@ -57,10 +59,10 @@ function GameWon({
     <div className="confetti-ctr">
       <Confetti height={window.innerHeight} />
       <section className="winner-modal">
-        <h1>You win!</h1>
-        <h2>Number of Guesses: {guessCount}</h2>
+        <h2>You win!</h2>
+        <h2>Guesses: {guessCount}</h2>
         <h2>
-          Top Score for Level {level}: {topScore}
+          PR for Level {level}: {topScore}
         </h2>
         <button onClick={() => nextLevel()}>Next Level</button>
       </section>

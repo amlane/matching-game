@@ -45,6 +45,10 @@
   margin: 5px 0;
 }
 
+.winner-modal .winner-msg h2 {
+  margin: 10px 0;
+}
+
 .winner-modal .top-scores h3 {
   padding: 0;
   margin: 10px 0;

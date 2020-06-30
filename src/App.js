@@ -50,9 +50,7 @@ function App() {
           <h1>Memory</h1>
         </section>
 
-        <div className="level">
-          Level: <strong>{level}</strong>
-        </div>
+        <div className="level">Level {level}</div>
         {isDropDownActive ? (
           <DropDownMenu toggleDropDownMenu={toggleDropDownMenu} />
         ) : null}

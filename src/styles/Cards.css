@@ -78,5 +78,6 @@
   .display-msg {
     font-size: 1.5rem;
     padding-top: 10px;
+    width: 85%;
   }
 }
