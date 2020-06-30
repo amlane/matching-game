@@ -16,11 +16,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: appear 1s ease-in;
+  animation: appear 0.5s ease-in;
 }
 
 .disappear {
-  animation: disappear 1s ease-in;
+  animation: disappear 0.5s ease-in;
 }
 
 .dropdown-menu a {
@@ -53,13 +53,13 @@
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
 @keyframes disappear {
   from {
-    opacity: 1;
+    opacity: 0.9;
   }
   to {
     opacity: 0;

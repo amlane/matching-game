@@ -39,7 +39,7 @@
 
 .scoreboard span {
   background-color: pink;
-  color: #282c34 !important;
+  color: #282c34;
   padding: 5px 20px;
   border-radius: 10px;
   width: 35%;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import "./styles/App.css";
 import Cards from "./components/Cards";
@@ -9,6 +9,16 @@ function App() {
   const [level, setLevel] = useState(1);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
+  useEffect(() => {
+    const colorTheme = localStorage.getItem("color_theme");
+
+    if (colorTheme === "purple") {
+      const body = window.document.body;
+
+      body.classList.add("purple-theme");
+    }
+  }, []);
+
   const toggleDropDownMenu = () => {
     if (isDropDownActive) {
       const dropDownMenu = document.querySelector(".dropdown-menu");
@@ -17,7 +27,7 @@ function App() {
 
       setTimeout(() => {
         setIsDropDownActive(!isDropDownActive);
-      }, 950);
+      }, 450);
     } else {
       setIsDropDownActive(!isDropDownActive);
     }
