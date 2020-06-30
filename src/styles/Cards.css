@@ -42,10 +42,9 @@
 .scoreboard span {
   background-color: var(--mainColor);
   color: #282c34;
-  padding: 5px 20px;
+  padding: 8px 10px;
   border-radius: 10px;
-  width: 35%;
-  height: 30px;
+  width: 48%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -58,7 +57,13 @@
 .display-msg {
   color: var(--mainColor);
   font-size: 2rem;
-  height: 5vh;
+  height: 10vh;
+  border: 1px solid var(--accentColor);
+  border-radius: 5px;
+  width: 90%;
+  margin: 10px auto;
+  font-weight: bold;
+  max-width: 470px;
 }
 
 @media only screen and (max-width: 900px) {

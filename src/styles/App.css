@@ -14,7 +14,7 @@
   max-width: 470px;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   font-size: 2rem;
   color: var(--mainColor);
@@ -22,29 +22,43 @@
   margin: 0 auto;
 }
 
-.App-header h1 {
-  display: inline-block;
-  font-size: 2rem;
+.App-header .menu-btn {
+  align-self: center;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 8px;
+  border: 1px solid var(--mainColor);
+  border-radius: 5px;
 }
 
-.logo {
-  background: var(--accentColor);
-  padding: 3px 3px 2px;
-  border-radius: 50%;
-  margin-right: 3px;
-  cursor: pointer;
+.App-header .menu-btn .line-1,
+.App-header .menu-btn .line-2,
+.App-header .menu-btn .line-3 {
+  background-color: var(--mainColor);
+  width: 30px;
+  height: 4px;
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+.App-header h1 {
+  display: inline-block;
+  font-size: 1.75rem;
 }
 
 .level {
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding: 5px 20px 0;
+  align-self: flex-start;
 }
 
 @media only screen and (max-width: 900px) {
   .App-header {
     min-height: 8vh;
-    padding: 5px;
+    padding: 10px 0 20px 0;
     align-items: baseline;
-    /* font-size: 1.75rem; */
+  }
+  .App-header h1 {
+    font-size: 1.65rem;
   }
 }

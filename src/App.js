@@ -38,17 +38,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <span
-            className="logo"
-            role="img"
-            aria-label="brain"
-            onClick={() => toggleDropDownMenu()}
-          >
+        <section className="menu-btn" onClick={() => toggleDropDownMenu()}>
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
+        </section>
+        <section>
+          <span className="logo" role="img" aria-label="brain">
             🧠
           </span>
           <h1>Memory</h1>
-        </div>
+        </section>
+
         <div className="level">
           Level: <strong>{level}</strong>
         </div>

@@ -89,7 +89,7 @@ function Cards({ level, setLevel }) {
     />
   ) : (
     <div className="container">
-      <div className="display-msg">{displayMessage}</div>
+      {/* <div className="display-msg">{displayMessage}</div> */}
       <div className="gameboard">
         {gameBoard.map((card, i) => {
           return (
@@ -121,6 +121,7 @@ function Cards({ level, setLevel }) {
           );
         })}
       </div>
+      <div className="display-msg">{displayMessage}</div>
       <div className="scoreboard">
         <span>
           Matches: <strong> {usersScore}</strong>
