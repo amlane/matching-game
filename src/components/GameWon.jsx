@@ -19,6 +19,8 @@ function GameWon({
     setGuessCount(0);
     setUsersScore(0);
     setLevel(level + 1);
+    console.log(typeof level);
+    localStorage.setItem("current_level", +level + 1);
     setCardQty(cardQty + 4);
   };
 
@@ -27,6 +29,7 @@ function GameWon({
     setGuessCount(0);
     setUsersScore(0);
     setLevel(1);
+    localStorage.setItem("current_level", 1);
     setCardQty(12);
   };
 

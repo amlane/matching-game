@@ -7,6 +7,10 @@
   font-size: 1.75rem;
 }
 
+.color-theme h2 {
+  font-size: 1.75rem;
+}
+
 .color-theme section {
   display: flex;
   flex-wrap: wrap;
@@ -22,13 +26,14 @@
 }
 
 .color-theme button {
-  border: 1px solid var(--accentColor);
+  border: 3px solid var(--accentColor);
   border-radius: 25px;
   margin: 20px 0;
   padding: 8px 26px;
-  font-size: 1.75rem;
-  background: pink;
-  color: #282c34;
+  font-size: 1.5rem;
+  background: var(--mainColor);
+  color: var(--accentColor);
+  /* box-shadow: 0 2px 4px var(--accentColor); */
 }
 
 .default {

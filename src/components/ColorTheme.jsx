@@ -35,7 +35,7 @@ function ColorTheme(props) {
           className="selection purple"
           onClick={() => setColorTheme("darkorchid")}
         ></div>
-        <button onClick={() => props.history.push("/")}>Save</button>
+        <button onClick={() => props.history.push("/")}>Done</button>
       </section>
     </div>
   );

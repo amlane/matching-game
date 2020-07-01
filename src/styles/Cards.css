@@ -56,10 +56,11 @@
 
 .display-msg {
   color: var(--mainColor);
+  background-color: var(--accentColor);
   font-size: 1.5rem;
   height: 10vh;
   border: 3px solid var(--mainColor);
-  border-radius: 5px;
+  border-radius: 15px;
   width: 90%;
   margin: 10px auto;
   display: flex;

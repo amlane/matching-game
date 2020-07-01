@@ -18,6 +18,14 @@ function Cards({ level, setLevel }) {
   const [isGameWon, setIsGameWon] = useState(false);
 
   useEffect(() => {
+    console.log("setLevel");
+    // checks for last level user was on
+    let currentLevel = localStorage.getItem("current_level");
+    if (currentLevel) {
+      setCardQty(12 + 4 * (currentLevel - 1));
+      setLevel(currentLevel);
+    }
+
     let newGame = [];
     let count = 0;
     for (let i = 1; i <= cardQty / 2; i++) {
@@ -29,7 +37,7 @@ function Cards({ level, setLevel }) {
     shuffle(newGame);
 
     setGameBoard(newGame);
-  }, [cardQty]);
+  }, [cardQty, setLevel]);
 
   useEffect(() => {
     let initializeBoard = [];

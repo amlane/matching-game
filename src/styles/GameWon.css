@@ -33,9 +33,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: baseline;
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
-  padding: 8px;
+  padding: 8px 0;
 }
 
 .winner-modal .top-scores .levels {
@@ -47,12 +47,15 @@
 
 h2 {
   margin: 10px 0;
-  /* border: 1px solid red; */
 }
 
 .winner-modal .top-scores h3 {
   padding: 0;
   margin: 10px 0;
+}
+
+h3 {
+  width: 100%;
 }
 
 .confetti-ctr button,
