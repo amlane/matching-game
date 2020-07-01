@@ -25,6 +25,10 @@ function Cards({ level, setLevel }) {
       setCardQty(12 + 4 * (currentLevel - 1));
       setLevel(currentLevel);
     }
+    // instructions for new users
+    if (currentLevel === null) {
+      setDisplayMessage("Select 2 tiles");
+    }
 
     let newGame = [];
     let count = 0;
